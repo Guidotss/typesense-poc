@@ -11,8 +11,8 @@ graph TB
     
     subgraph "Search Engine (Typesense)"
         F[Collection: plants] --> G[Indexed Documents]
-        G --> H[Facets & Filters]
-        G --> I[Search Results]
+        G --> H[Search Query + Facets]
+        H --> I[Search Results + Facet Counts]
     end
     
     subgraph "Data Pipeline"
@@ -22,8 +22,9 @@ graph TB
         M --> F
     end
     
-    E --> F
-    F --> I
+    E --> H
+    I --> C
+    I --> D
     I --> A
 ```
 
@@ -69,10 +70,10 @@ graph LR
 ```
 
 ### 3. **Facetas Inteligentes**
-- Agrupación automática de resultados
-- Conteo dinámico de categorías
-- Filtros combinables
-- Actualización en tiempo real
+- **Cálculo automático**: Typesense calcula facetas en cada búsqueda
+- **Conteo dinámico**: Muestra cuántos resultados hay en cada categoría
+- **Filtros combinables**: Permite múltiples filtros simultáneos
+- **Actualización en tiempo real**: Las facetas se recalculan con cada búsqueda
 
 ## Estructura de Datos
 
