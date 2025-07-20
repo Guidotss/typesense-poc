@@ -1,7 +1,3 @@
-# Motor de Búsqueda con Typesense - POC
-
-Esta aplicación demuestra la implementación de un motor de búsqueda avanzado utilizando **Typesense** para un catálogo de plantas. El sistema proporciona búsqueda semántica, filtros dinámicos, facetas y una experiencia de usuario moderna.
-
 ## Arquitectura del Sistema
 
 ```mermaid
