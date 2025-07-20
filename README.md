@@ -6,29 +6,25 @@ graph TB
         A[Página Principal] --> B[Hook useTypesenseSearch]
         B --> C[Componente SearchFilters]
         B --> D[Componente ProductCard]
-    end
-    
-    subgraph "Backend Services"
-        E[TypesenseService] --> F[Typesense Client]
+        B --> E[TypesenseService]
     end
     
     subgraph "Search Engine (Typesense)"
-        G[Collection: plants] --> H[Indexed Documents]
-        H --> I[Facets & Filters]
-        H --> J[Search Results]
+        F[Collection: plants] --> G[Indexed Documents]
+        G --> H[Facets & Filters]
+        G --> I[Search Results]
     end
     
     subgraph "Data Pipeline"
-        K[plants.json] --> L[process-plants-data.js]
-        L --> M[plants-processed.json]
-        M --> N[setup-typesense.js]
-        N --> G
+        J[plants.json] --> K[process-plants-data.js]
+        K --> L[plants-processed.json]
+        L --> M[setup-typesense.js]
+        M --> F
     end
     
-    A --> E
-    E --> G
-    G --> J
-    J --> A
+    E --> F
+    F --> I
+    I --> A
 ```
 
 ## Flujo de Datos
@@ -36,17 +32,15 @@ graph TB
 ```mermaid
 sequenceDiagram
     participant U as Usuario
-    participant F as Frontend
+    participant F as Frontend (Next.js)
     participant T as TypesenseService
     participant S as Typesense Server
-    participant D as Database
 
     U->>F: Ingresa término de búsqueda
     F->>T: searchProducts(query, filters)
     T->>S: Construye parámetros de búsqueda
-    S->>D: Ejecuta búsqueda semántica
-    D->>S: Retorna resultados + facetas
-    S->>T: Procesa respuesta
+    S->>S: Ejecuta búsqueda semántica
+    S->>T: Retorna resultados + facetas
     T->>F: Actualiza estado
     F->>U: Muestra resultados en tiempo real
 ```
