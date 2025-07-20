@@ -1,8 +1,8 @@
-# 🔍 Motor de Búsqueda con Typesense - POC
+# Motor de Búsqueda con Typesense - POC
 
 Esta aplicación demuestra la implementación de un motor de búsqueda avanzado utilizando **Typesense** para un catálogo de plantas. El sistema proporciona búsqueda semántica, filtros dinámicos, facetas y una experiencia de usuario moderna.
 
-## 🏗️ Arquitectura del Sistema
+## Arquitectura del Sistema
 
 ```mermaid
 graph TB
@@ -35,7 +35,7 @@ graph TB
     J --> A
 ```
 
-## 🔄 Flujo de Datos
+## Flujo de Datos
 
 ```mermaid
 sequenceDiagram
@@ -55,7 +55,7 @@ sequenceDiagram
     F->>U: Muestra resultados en tiempo real
 ```
 
-## 🎯 Características del Motor de Búsqueda
+## Características del Motor de Búsqueda
 
 ### 1. **Búsqueda Semántica**
 - Búsqueda por texto en múltiples campos
@@ -84,7 +84,7 @@ graph LR
 - Filtros combinables
 - Actualización en tiempo real
 
-## 🗄️ Estructura de Datos
+## Estructura de Datos
 
 ### Schema de la Colección
 
@@ -119,12 +119,12 @@ erDiagram
 - `synonyms`: Sinónimos y variaciones
 - `search_text`: Texto optimizado para búsqueda
 
-## ⚙️ Configuración del Sistema
+## Configuración del Sistema
 
 ### 1. **Variables de Entorno**
 ```bash
 # Typesense Configuration
-TYPESENSE_API_KEY=your-api-key
+TYPESENSE_API_KEY=tu-api-key
 TYPESENSE_HOST=localhost
 TYPESENSE_PORT=8108
 TYPESENSE_PROTOCOL=http
@@ -142,7 +142,7 @@ services:
       TYPESENSE_ENABLE_CORS: "true"
 ```
 
-## 🚀 Instalación y Configuración
+## Instalación y Configuración
 
 ### 1. **Clonar el repositorio**
 ```bash
@@ -180,7 +180,7 @@ node scripts/setup-typesense.js
 pnpm dev
 ```
 
-## 🔧 Scripts Disponibles
+## Scripts Disponibles
 
 ### Procesamiento de Datos
 - `scripts/get-trefle-data.js`: Obtiene datos de la API de Trefle
@@ -189,7 +189,7 @@ pnpm dev
 - `scripts/seed-typesense.js`: Pobla la base de datos
 - `scripts/clear-typesense.js`: Limpia la colección
 
-## 📊 Métricas de Rendimiento
+## Métricas de Rendimiento
 
 ### Optimizaciones Implementadas
 - **Búsqueda con prefijos**: Mejora la experiencia de autocompletado
@@ -213,7 +213,7 @@ pnpm dev
 }
 ```
 
-## 🎨 Interfaz de Usuario
+## Interfaz de Usuario
 
 ### Componentes Principales
 - **SearchFilters**: Panel de filtros dinámicos
@@ -227,7 +227,7 @@ pnpm dev
 - Manejo de errores
 - Diseño responsive
 
-## 🔍 Ejemplos de Búsqueda
+## Ejemplos de Búsqueda
 
 ### Búsqueda por Texto
 ```
@@ -244,45 +244,9 @@ Precio: $20-$50 +
 Stock: "Alto Stock"
 ```
 
-## 🛠️ Tecnologías Utilizadas
-
-- **Frontend**: Next.js 14, React, TypeScript
-- **Search Engine**: Typesense
-- **UI Components**: shadcn/ui
-- **Styling**: Tailwind CSS
-- **Data Processing**: Node.js
-- **Containerization**: Docker
-
-## 📈 Monitoreo y Debugging
-
 ### Typesense Dashboard
 Accede al dashboard en `http://localhost:8080` para:
 - Ver estadísticas de búsqueda
 - Monitorear rendimiento
 - Explorar la colección
 - Debuggear consultas
-
-### Logs de Desarrollo
-```bash
-# Ver logs de Typesense
-docker-compose logs typesense
-
-# Ver logs de la aplicación
-pnpm dev
-```
-
-## 🤝 Contribución
-
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
-
----
-
-**Desarrollado con ❤️ usando Typesense y Next.js** 
